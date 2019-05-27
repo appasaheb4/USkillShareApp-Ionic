@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "253840953533",
+    "firebase_url": "https://uskillshare.firebaseio.com",
+    "project_id": "uskillshare",
+    "storage_bucket": "uskillshare.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253840953533:android:072cb51870ec4f8e",
+        "android_client_info": {
+          "package_name": "io.four.uskillshare2017"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "253840953533-ahejjlgo3eesfpert97oubommgfo9a9l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCC8D6E657wnumY4GsjwzGH92ykZdeGsTw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

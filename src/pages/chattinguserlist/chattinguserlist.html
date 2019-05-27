@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>User List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ <ion-list class="bgTrnasp">   
+            <ion-item #val *ngFor="let item of getAllUserList" (click)="chattingRoom(item.regUserId)">
+                <ion-avatar item-start >
+                    <img src="{{item.imagePath}}">
+                </ion-avatar>     
+                <h4 class="fullName">{{item.fullName}}</h4>
+            </ion-item>   
+        </ion-list>
+</ion-content>

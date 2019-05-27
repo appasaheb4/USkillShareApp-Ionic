@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>User Information</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+ <ion-grid no-lines>   
+        <ion-row no-lines *ngFor="let item of getSingleUserInfo">       
+            <ion-col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 no-lines >
+                <div class="form-group coverImage">
+                <img  src="{{item.coverPhoto}}"  class="thisCoverImage " />
+                <div class="clearfix"> </div>
+                </div>
+                <div text-center class="form-group">
+                     <img src="{{item.imagePath}}"  class="proPhoto img-circle" /><br/>
+                     <div class="clearfix"></div>   
+                </div>      
+            </ion-col>      
+        </ion-row>
+    </ion-grid> 
+     <ion-item no-lines class="profileInfo">           
+        <h2 >  {{data.fullName}} </h2>
+         <h5 *ngIf="data.mobileStatus=='Off'"> {{data.mobileNo}} </h5>
+          <h5 *ngIf="data.emailStatus=='Off'"> {{data.email}} </h5>
+          <h5> Birth Date : {{data.birtDate}} </h5>
+           <h5 *ngIf="data.skill!=null"> Skill : {{data.skill}} </h5>
+    </ion-item>
+      <ion-item no-lines>       
+       <button ion-button outline item-left (click)="calling();" *ngIf="data.mobileStatus=='Off'">
+             <ion-icon name="call"></ion-icon>  Call</button>
+             <button ion-button outline item-center  *ngIf="data.loginUserId != data.userId" (click)="chattingRoom()">  
+             <ion-icon name="chatbubbles"></ion-icon>  Chat</button>  
+            <button ion-button outline item-right (click)="smsShare();" *ngIf="data.mobileStatus=='Off'">
+             <ion-icon name="chatboxes"></ion-icon>  Message</button>
+    </ion-item>
+</ion-content>

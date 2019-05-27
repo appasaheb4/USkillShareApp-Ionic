@@ -1,0 +1,32 @@
+
+<ion-header>
+ <ion-navbar>  
+    <ion-title>Chatting</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding  #content>
+<ion-list>
+      <div id="chatMessages">   
+    <ion-item *ngFor="let item of getAllChattingMessage" no-lines >
+      <div [class]="item.userId == data.userId ? 'innerMessage messageRight' : 'innerMessage messageLeft'">
+      
+          <div class="messageContent">{{ item.message }}</div><br/>
+            <div class="username">{{ item.date }}</div>
+      </div>          
+    </ion-item>
+  </div>  
+	</ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+      <form [formGroup]="chattingroomform">        
+    <div id="footer">      
+      <div class="elem"><ion-input type="text" placeholder="Message" formControlName="data.message" [(ngModel)]="data.message" ></ion-input></div>
+      <div class="elem"><button ion-button="" icon-only="" (click)="sendMessage()"><ion-icon name="send"></ion-icon> </button></div>
+    </div>
+      </form>
+  </ion-toolbar>
+</ion-footer>

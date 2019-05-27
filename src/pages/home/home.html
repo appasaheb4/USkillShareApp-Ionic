@@ -1,0 +1,68 @@
+<ion-header>
+    <ion-navbar>   
+        <button ion-button menuToggle *ngIf="!toggled">
+                <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title *ngIf="!toggled">U Skill Share</ion-title>   
+        <ion-searchbar *ngIf="toggled"  [showCancelButton]="true"  [(ngModel)]="searchTerm" (ionCancel)="toggleSearch()" (ionInput)="setFilteredItems()"  placeholder="Search....."></ion-searchbar>
+        <ion-buttons end *ngIf="!toggled">
+                     <button ion-button icon-only (click)="toggleSearch()"><ion-icon name="search" ></ion-icon></button>
+            <button ion-button icon-only ><ion-icon name="chatboxes"></ion-icon></button>
+        </ion-buttons>
+    </ion-navbar> 
+
+
+    <ion-navbar>        
+        <ion-segment color="dark" [(ngModel)]="tabs">
+            <ion-segment-button (click)="selectTab(0)"
+                value="0" >Notes
+            </ion-segment-button>
+            <ion-segment-button (click)="selectTab(1)"
+                value="1">Video    
+            </ion-segment-button>  
+            <ion-segment-button (click)="selectTab(2)"
+                value="2">Error    
+            </ion-segment-button> 
+
+            <div id="slide" class="slide"></div>   
+        </ion-segment>
+    </ion-navbar>
+
+</ion-header>       
+
+<ion-slides #pageSlider id="pageSlider"  (ionSlideWillChange)="changeWillSlide($event)" class="fullBody" >
+    <ion-slide class="bgTrnasp"> 
+        <ion-list class="bgTrnasp">   
+            <ion-item #val *ngFor="let news of items" class="langNewsItem" (click)="callLangWisePage(news.id);" class="bgTrnasp" >
+                <ion-avatar item-start >
+                    <img src="{{news.imagePath}}" alt="{{news.langName}}">
+                </ion-avatar>     
+                <h1 class="limitchar darkColor" >{{news.heading}}</h1>
+                <p>{{news.date}}</p>      
+            </ion-item>   
+        </ion-list>
+    </ion-slide>
+    <ion-slide> 
+        <ion-card *ngFor="let news of videoLocalData" class="bgTrnasp">     
+              <iframe width="100%" height="300" [src]="this.domSanitizer.bypassSecurityTrustResourceUrl(news.discription)" frameborder="0" allowfullscreen></iframe>
+            <ion-card-content>            
+                <ion-card-title>
+                    <h3>{{news.heading}}</h3>
+                </ion-card-title>
+                <p>{{news.date}}</p>
+            </ion-card-content>
+        </ion-card>   
+    </ion-slide>
+    <ion-slide>       
+        <ion-list>
+            <ion-item #val *ngFor="let news of errorLocalData" class="langNewsItem" (click)="callLangWisePage(news.id);"  class="bgTrnasp">
+                <ion-avatar item-start >     
+                      <img src="{{news.imagePath}}" alt="{{news.langName}}">
+                </ion-avatar>    
+                <h1 class="limitchar darkColor">{{news.heading}}</h1>
+                <p>{{news.date}}</p>   
+            </ion-item>
+        </ion-list>
+    </ion-slide>
+</ion-slides>
+

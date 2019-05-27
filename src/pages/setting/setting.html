@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Setting</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <div>
+    <ion-item>       
+        <ion-label color="dark"> Hide Email Details </ion-label>
+        <ion-toggle  checked="{{emailStatusL}}" [(ngModel)]="emailStatusL"  (ionChange)="emailStatusChange()"></ion-toggle>
+    </ion-item>
+     <ion-item>    
+        <ion-label color="dark"> Hide Contact Details</ion-label>     
+        <ion-toggle  checked="{{mobileStatusL}}" color="secondary"  [(ngModel)]="mobileStatusL"  (ionChange)="updateItem()"></ion-toggle>
+    </ion-item>       
+    </div>
+        
+</ion-content>

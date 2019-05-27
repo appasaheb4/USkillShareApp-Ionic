@@ -1,0 +1,8 @@
+{
+  "name": "USkillShare",
+  "app_id": "679ca093",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

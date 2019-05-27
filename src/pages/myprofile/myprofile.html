@@ -1,0 +1,59 @@
+<ion-header>
+    <ion-navbar>   
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>My Profile</ion-title>
+    </ion-navbar>  
+</ion-header>    
+<ion-content class="fullBody">     
+    <ion-grid>   
+        <ion-row>       
+            <ion-col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 >
+                <div class="form-group coverImage">
+                <img  src="{{coverImage}}"  class="thisCoverImage " (click)="presentActionSheet('cover')" />
+                 <button ion-button class="btn btn-sm btnCoverImage"  clear  (click)="presentActionSheet('cover')">Change Cover Photo</button><br/>
+                    <div class="clearfix"> </div>
+                </div>
+                <div text-center class="form-group">
+                     <img  [hidden]="profileIcon !== null" src="{{base64Image}}"  class="proPhoto img-thumbnail img-circle" (click)="presentActionSheet('profile')" /><br/>
+                     <img src="{{pathForImage(profileIcon)}}" class="proPhoto img-thumbnail img-circle" [hidden]="profileIcon === null" (click)="presentActionSheet('profile')">
+                    <button ion-button class="btn btn-sm"  clear (click)="presentActionSheet()">Change Profile Photo</button>
+                     <div class="clearfix"></div>
+                </div>   
+            </ion-col>      
+        </ion-row>
+    </ion-grid>  
+     <form [formGroup]="myprofileForm">     
+    <ion-list >
+        <ion-item no-lines class="bgTrnasp">
+            <button ion-button item-right outline  (click)="editAction();">
+                <ion-icon name="create"></ion-icon>  Edit
+            </button>
+        </ion-item>
+        <ion-item class="bgTrnasp">
+            <ion-input  type="text" placeholder="First Name *"  [disabled]="!disName" formControlName="data.firstName" [(ngModel)]="data.firstName"></ion-input>
+        </ion-item>
+         <ion-item class="bgTrnasp">  
+            <ion-input type="text" placeholder="Last Name *" [disabled]="!disName" formControlName="data.lastName" [(ngModel)]="data.lastName"></ion-input>
+        </ion-item>
+        <ion-item class="bgTrnasp">
+            <ion-input type="number" placeholder="Mobile No *" [disabled]="!disName" formControlName="data.mobileNo" [(ngModel)]="data.mobileNo"></ion-input>
+        </ion-item>
+        <ion-item class="bgTrnasp">
+            <ion-input type="email" placeholder="Email *" [disabled]="!disName" formControlName="data.email" [(ngModel)]="data.email"></ion-input>
+        </ion-item>
+         <ion-item class="bgTrnasp">
+             <ion-label id="birtDateTitle" color="dark">Birthday Date</ion-label>  
+  <ion-datetime displayFormat="DD-MM-YYYY"  [disabled]="!disName"    formControlName="data.birtdayDate"  [(ngModel)]="data.birtdayDate" ></ion-datetime>
+</ion-item>
+       <ion-item class="bgTrnasp">
+            <ion-input type="text" placeholder="Skill " [disabled]="!disName" formControlName="data.skill"  [(ngModel)]="data.skill"></ion-input>
+        </ion-item>   
+        <ion-item no-lines class="bgTrnasp"><button ion-button  full round [disabled]="!myprofileForm.valid" *ngIf="updateStatus" (click)="updateData();" >Update</button></ion-item>
+        <ion-item no-lines class="bgTrnasp"><button ion-button item-right outline (click)="openChangePassword();">
+            <ion-icon name="lock"></ion-icon>  Change Password
+            </button></ion-item>
+    </ion-list>   
+     </form>
+</ion-content>

@@ -1,0 +1,26 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>User List</ion-title>
+  </ion-navbar>
+
+</ion-header>   
+   
+
+<ion-content class="fullBody">
+  <ion-grid>
+  <ion-row>    
+    <ion-col col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 class="grid1 colIcon"  *ngFor="let item of getAllDataShow"  >   
+             <div (click)="userDetailsOpen(item.id);">
+             <img src="{{item.imagePath}}" class="proPhoto img-responsive  img-circle" alt="proName"/>
+             <h6 class="title text-center">{{item.fullName}}</h6> 
+        </div>
+             <button ion-button round id="btnCall" *ngIf="item.mobileStatus=='Off'" (click)="calling(item.mobileNo);">
+                  <ion-icon name="call"></ion-icon>  Call</button>
+             <button ion-button round id="btnCall" disabled="" *ngIf="item.mobileStatus=='On'">
+                  <ion-icon name="call"></ion-icon>  Call</button>
+    </ion-col>           
+  </ion-row>
+</ion-grid>
+</ion-content>

@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title style="text-align: center">LOGIN</ion-title>
+    </ion-navbar>
+</ion-header>    
+<ion-content class="login fullBody">
+    <div class="form-group" padding style="margin-top: 100px">
+        <form [formGroup]="loginForm">
+            <ion-list inset>
+                <ion-item class="bgTrnasp"> 
+                    <ion-input type="email" placeholder="Email"  formControlName="data.email" [(ngModel)]="data.email"></ion-input>
+                </ion-item>
+                <ion-item class="bgTrnasp">
+                    <ion-input type="password" placeholder="Password"  formControlName="data.password" [(ngModel)]="data.password"></ion-input>
+                </ion-item>
+                <ion-item no-lines class="bgTrnasp">      
+                    <button ion-button id="btnSize"     full round (click)="login();"  [disabled]="!loginForm.valid">Sign In</button><br/>
+                     <button ion-button block  outline (click)="emailSent();" >Forget Password</button><br/>
+                      <button ion-button id="btnSize"  full round (click)="requestAdmin();" >Request Admin</button>
+                </ion-item>
+            </ion-list>    
+        </form>      
+    </div>    
+</ion-content>
+<ion-footer>  
+    <button  ion-button full id="fotterBtn" (click)="goRegiationPage();" color="appcolor">Sign Up</button>
+</ion-footer>
+
+
+

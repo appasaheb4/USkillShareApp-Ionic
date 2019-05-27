@@ -1,0 +1,27 @@
+page-userlist {
+    .fullBody{
+        background-image: url("http://skillshare.web44.net/Content/Image/Mobile App/Global/backgoundAppImage.jpg");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+
+    }
+    ion-col{
+        border-color: black;
+        border-radius: 5px;
+        box-shadow: rgba(0,0,0,0.8) 0 0 1px;
+    }
+
+    .proPhoto{
+        height: 80px;
+        width: 80px;
+        border-color: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #btnCall{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
